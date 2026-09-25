@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+
+# Base de données locale (jamais sur GitHub)
+*.db
+
+# Secrets (jamais sur GitHub)
+.env
+
+# Photos envoyées par les utilisateurs (jamais sur GitHub)
+uploads/
+
+# Éditeurs / systèmes
+.DS_Store
+.vscode/
+.idea/

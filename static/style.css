@@ -1,0 +1,105 @@
+:root {
+  --ink: #2a1e3b;      /* texte, prune très foncée */
+  --paper: #f7f6fb;    /* fond, blanc légèrement bleuté */
+  --sun: #ffc857;      /* accent jaune */
+  --lagoon: #1b7f79;   /* liens et actions */
+  --lilac: #dcd6f0;    /* surfaces secondaires */
+  --danger: #b3261e;
+
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+
+a { color: var(--lagoon); }
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 3px solid var(--sun);
+  outline-offset: 2px;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem clamp(1rem, 5vw, 3rem);
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.page {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 5vw, 3rem) 4rem;
+}
+
+.hero { padding: clamp(2rem, 8vw, 5rem) 0 2.5rem; max-width: 46rem; }
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.25rem, 6vw, 4rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.25rem;
+}
+
+.lead { font-size: 1.2rem; max-width: 36rem; margin: 0; }
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.feature {
+  border-top: 6px solid var(--sun);
+  padding-top: 1rem;
+}
+
+.feature h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.4rem;
+  margin: 0 0 0.5rem;
+}
+
+.feature p { margin: 0; max-width: 32rem; }
+
+.soon {
+  margin-top: 3rem;
+  display: inline-block;
+  background: var(--lilac);
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+}
+
+.flash {
+  padding: 0.75rem 1rem;
+  border-left: 4px solid var(--lagoon);
+  background: #fff;
+}
+.flash-error { border-left-color: var(--danger); }
+
+.site-footer {
+  padding: 2rem clamp(1rem, 5vw, 3rem);
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
