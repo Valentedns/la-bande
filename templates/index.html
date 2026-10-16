@@ -32,5 +32,12 @@
   </div>
 </section>
 
-<p class="soon">Création de compte bientôt disponible.</p>
+{% if g.user %}
+  <p class="soon">Connecté en tant que {{ g.user["username"] }}. La création de groupes arrive bientôt.</p>
+{% else %}
+  <p class="cta">
+    <a class="button" href="{{ url_for('auth.register') }}">Créer un compte</a>
+    <a href="{{ url_for('auth.login') }}">J'ai déjà un compte</a>
+  </p>
+{% endif %}
 {% endblock %}

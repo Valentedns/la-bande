@@ -4,7 +4,9 @@ import secrets
 
 from flask import Flask, render_template
 
+import auth
 import database
+import security
 
 
 def create_app(test_config=None):
@@ -22,12 +24,16 @@ def create_app(test_config=None):
         DATABASE=os.environ.get("DATABASE_PATH", "la_bande.db"),
         UPLOAD_FOLDER=os.environ.get("UPLOAD_FOLDER", "uploads"),  # photos (lot 7)
         MAX_CONTENT_LENGTH=5 * 1024 * 1024,  # 5 Mo max par envoi
+        SESSION_COOKIE_HTTPONLY=True,  # le cookie de session est invisible pour JavaScript
+        SESSION_COOKIE_SAMESITE="Lax",
     )
     if test_config:
         app.config.update(test_config)
 
     os.makedirs(app.config["UPLOAD_FOLDER"], exist_ok=True)
     database.init_app(app)
+    security.init_app(app)
+    app.register_blueprint(auth.bp)
 
     @app.route("/")
     def index():
