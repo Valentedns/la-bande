@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>La Bande</title>
+  <meta name="description" content="La Bande, l'appli qui réunit l'organisation des sorties entre amis : dispos, sorties, dépenses, photos et lieux.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="./">La Bande</a>
+    <a class="button" href="https://github.com/Valentedns/la-bande">Voir le code</a>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <h1>Vos sorties entre amis, de l'idée au souvenir.</h1>
+      <p class="lead">
+        Un groupe WhatsApp pour proposer, un sondage pour la date, Tricount pour les comptes,
+        un album partagé pour les photos… et personne ne se souvient du nom du bar d'il y a six mois.
+        La Bande réunit tout ça au même endroit.
+      </p>
+    </section>
+
+    <section class="block" aria-labelledby="features-title">
+      <h2 id="features-title">Ce que fait La Bande</h2>
+      <div class="features">
+        <div class="feature">
+          <h3>Qui est libre quand</h3>
+          <p>Chacun remplit ses dispos sur un calendrier. On voit d'un coup d'œil les jours où toute la bande est là.</p>
+        </div>
+        <div class="feature">
+          <h3>Proposer, répondre, décaler</h3>
+          <p>Un resto, un bar, des vacances : chacun répond ou propose une autre date.</p>
+        </div>
+        <div class="feature">
+          <h3>Les comptes sont faits</h3>
+          <p>On note qui a payé quoi pendant la sortie. La Bande calcule qui doit combien à qui.</p>
+        </div>
+        <div class="feature">
+          <h3>L'album de chaque sortie</h3>
+          <p>Tout le monde ajoute ses photos au même endroit, rangées par sortie.</p>
+        </div>
+        <div class="feature">
+          <h3>La carte de vos QG</h3>
+          <p>Chaque lieu visité est sur la carte, noté par la bande : QG, à refaire, bof ou à éviter.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="demo-title">
+      <h2 id="demo-title">Déjà disponible : les comptes</h2>
+      <p class="intro">
+        La première version (v1.0.0) pose les fondations : la page d'accueil et les comptes utilisateurs,
+        avec des mots de passe chiffrés et des formulaires protégés.
+      </p>
+      <figure class="shot">
+        <img src="captures/accueil.png" width="1400" height="618" loading="lazy"
+             alt="Page d'accueil de La Bande avec les boutons Se connecter et Créer un compte">
+        <figcaption>La page d'accueil.</figcaption>
+      </figure>
+      <div class="shots">
+        <figure class="shot">
+          <img src="captures/inscription-reussie.png" width="1400" height="618" loading="lazy"
+               alt="Message Bienvenue dans La Bande après la création d'un compte">
+          <figcaption>Après l'inscription, on est connecté directement.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="captures/connexion.png" width="1400" height="593" loading="lazy"
+               alt="Formulaire de connexion affichant Adresse e-mail ou mot de passe incorrect">
+          <figcaption>Un mauvais mot de passe affiche un message clair.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="roadmap-title">
+      <h2 id="roadmap-title">La suite</h2>
+      <ol class="roadmap">
+        <li class="done"><span>Lot 0</span> Squelette du projet</li>
+        <li class="done"><span>Lot 1</span> Comptes utilisateurs</li>
+        <li><span>Lot 2</span> Groupes et codes d'invitation</li>
+        <li><span>Lot 3</span> Calendrier des dispos</li>
+        <li><span>Lot 4</span> Sorties</li>
+        <li><span>Lot 5</span> Dépenses partagées</li>
+        <li><span>Lot 6</span> Carte et notes des lieux</li>
+        <li><span>Lot 7</span> Album photo</li>
+      </ol>
+    </section>
+
+    <section class="block" aria-labelledby="build-title">
+      <h2 id="build-title">Comment le projet est construit</h2>
+      <p class="intro">
+        Le code est développé sur Replit, relu sur ordinateur avec Claude Code, puis versionné sur GitHub.
+        Chaque fonctionnalité vit sur sa propre branche et rejoint la version principale par une pull request.
+        À chaque modification, GitHub Actions lance les tests automatiquement et met cette page à jour.
+      </p>
+      <p><a href="https://github.com/Valentedns/la-bande#readme">Lire la documentation complète sur GitHub</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>La Bande, projet de Valentine Denis · École .decode, module GitHub &amp; CI/CD</p>
+  </footer>
+</body>
+</html>
