@@ -103,3 +103,63 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   font-size: 0.9rem;
   opacity: 0.7;
 }
+
+
+/* ===== Lot 1 : messages, navigation du compte ===== */
+.flash-success { border-left-color: var(--lagoon); }
+.button:focus-visible { outline: 3px solid var(--sun); outline-offset: 2px; }
+
+.nav { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.nav-user { font-weight: 600; }
+.inline-form { display: inline; margin: 0; }
+
+.button {
+  display: inline-block;
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  border-radius: 999px;
+  padding: 0.6rem 1.2rem;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+.button:hover { background: var(--lagoon); }
+
+.link-button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: var(--lagoon);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.cta { display: flex; align-items: center; gap: 1.25rem; margin-top: 3rem; flex-wrap: wrap; }
+
+/* ===== Lot 1 : formulaires ===== */
+.auth { max-width: 26rem; padding-top: clamp(1.5rem, 6vw, 3.5rem); }
+.auth h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  letter-spacing: -0.02em;
+  margin: 0 0 1.5rem;
+}
+
+.form { display: flex; flex-direction: column; }
+.form label { font-weight: 600; margin-top: 1rem; margin-bottom: 0.35rem; }
+.form input {
+  font: inherit;
+  padding: 0.65rem 0.8rem;
+  border: 2px solid var(--lilac);
+  border-radius: 0.6rem;
+  background: #fff;
+  color: var(--ink);
+}
+.form input:focus { border-color: var(--ink); }
+.form .button { margin-top: 1.75rem; align-self: flex-start; }
+.hint { margin: 0.3rem 0 0; font-size: 0.9rem; opacity: 0.75; }
+.switch { margin-top: 1.5rem; }
