@@ -125,6 +125,7 @@ les erreurs d'arrondi. **Les dates suivent le format ISO** : `2026-10-03` et
    - servir les photos via une route qui vérifie l'appartenance au groupe, et **pas** depuis `static/`.
 8. `la_bande.db`, `.env` et `uploads/` ne sont jamais commités (voir `.gitignore`).
 9. Le texte saisi par les utilisateurs est toujours échappé à l'affichage (Jinja le fait par défaut : ne jamais utiliser `|safe` sur ces textes).
+10. **Protection CSRF** : chaque formulaire `POST` contient `<input type="hidden" name="csrf_token" value="{{ csrf_token() }}">`, et les requêtes `fetch` envoient l'en-tête `X-CSRF-Token`. La vérification est faite dans `security.py`.
 
 ## 7. Découpage en lots
 
