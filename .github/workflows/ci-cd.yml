@@ -1,0 +1,64 @@
+# Chaîne CI/CD de La Bande
+# - CI : à chaque push et à chaque pull request, on installe le projet et on lance les tests.
+# - CD : quand main change (après la fusion d'une pull request), on publie la page vitrine
+#        (dossier site/) sur GitHub Pages, seulement si les tests sont verts.
+name: CI/CD
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:   # bouton « Run workflow » pour relancer à la main
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    name: Tests automatiques
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Installer Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installer les dépendances
+        run: pip install -r requirements.txt
+
+      - name: Lancer les tests (application + page vitrine)
+        run: pytest -v
+
+  deploy:
+    name: Déploiement sur GitHub Pages
+    needs: tests                     # pas de mise en ligne si les tests échouent
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Préparer GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Empaqueter le dossier site/
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Publier
+        id: deployment
+        uses: actions/deploy-pages@v4
